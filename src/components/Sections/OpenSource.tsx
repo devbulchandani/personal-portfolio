@@ -23,7 +23,6 @@ export default function OpenSource() {
                 viewport={{ once: true }}
                 className="w-full glass rounded-3xl p-8 border border-white/5 relative overflow-hidden group"
             >
-                {/* Background Effect */}
                 <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,transparent,black)] pointer-events-none" />
                 <div className="absolute -right-20 -top-20 w-64 h-64 bg-accent-lime/10 rounded-full blur-[100px] pointer-events-none" />
 
@@ -48,7 +47,7 @@ export default function OpenSource() {
                         </div>
                     </div>
 
-                    <Link href="https://github.com/devbulchandani" className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:bg-white/10 transition-all hover:scale-105 flex items-center gap-2 whitespace-nowrap">
+                    <Link href="https://github.com/spring-projects/spring-ai/commits/main/?author=devbulchandani" className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium hover:bg-white/10 transition-all hover:scale-105 flex items-center gap-2 whitespace-nowrap">
                         View on GitHub
                     </Link>
                 </div>
