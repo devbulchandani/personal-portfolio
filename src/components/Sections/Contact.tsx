@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Phone } from "lucide-react";
+import { Mail, ArrowRight, Phone, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function Contact() {
@@ -29,7 +29,7 @@ export default function Contact() {
             >
                 <h2 className="text-5xl lg:text-7xl font-bold text-white mb-8 tracking-tight leading-tight">
                     Let’s Build Something{" "}
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-accent-lime">
+                    <span className="block text-transparent bg-clip-text bg-linear-to-r from-accent-orange to-accent-lime">
                         Amazing
                     </span>
                 </h2>
@@ -38,10 +38,10 @@ export default function Contact() {
                     I’m open to collaborations, freelance work, and innovative projects in AI,
                     full-stack development, and privacy-first systems.
                 </p>
-
-                <Link
-                    href="mailto:devbulchandani876@gmail.com"
-                    className="
+                <div className="flex flex-wrap justify-center gap-4">
+                    <Link
+                        href="mailto:devbulchandani876@gmail.com"
+                        className="
             inline-flex items-center gap-3
             px-9 py-4
             bg-white/5 backdrop-blur-md
@@ -53,11 +53,34 @@ export default function Contact() {
             shadow-[0_0_25px_rgba(255,120,0,0.15)]
             group
           "
-                >
-                    <Mail className="w-5 h-5 text-accent-orange" />
-                    Get In Touch
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-accent-lime" />
-                </Link>
+                    >
+                        <Mail className="w-5 h-5 text-accent-orange" />
+                        Get In Touch
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-accent-lime" />
+                    </Link>
+
+                    <Link
+                        href="https://wa.me/918629992791"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="
+        inline-flex items-center gap-3
+            px-9 py-4
+            bg-white/5 backdrop-blur-md
+            border border-white/10
+            text-white rounded-full
+            font-semibold text-lg
+            transition-all duration-300
+            hover:bg-white/8 hover:scale-105
+            shadow-[0_0_25px_rgba(255,120,0,0.15)]
+            group
+      "
+                    >
+                        <MessageCircle className="w-5 h-5 text-accent-orange" />
+                        WhatsApp Me
+                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-accent-lime" />
+                    </Link>
+                </div>
 
                 <div className="mt-10 space-y-3 text-neutral-500 text-sm">
                     <p className="flex items-center justify-center gap-2">
