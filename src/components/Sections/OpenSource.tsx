@@ -14,7 +14,7 @@ export default function OpenSource() {
                 className="text-3xl font-bold text-white mb-12 flex items-center gap-4"
             >
                 Open Source
-                <div className="h-[1px] bg-gradient-to-r from-accent-orange to-transparent flex-grow ml-4 max-w-[200px]" />
+                <div className="h-px bg-linear-to-r from-accent-orange to-transparent grow ml-4 max-w-[200px]" />
             </motion.h2>
 
             <motion.div
@@ -23,7 +23,7 @@ export default function OpenSource() {
                 viewport={{ once: true }}
                 className="w-full glass rounded-3xl p-8 border border-white/5 relative overflow-hidden group"
             >
-                <div className="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,transparent,black)] pointer-events-none" />
+                <div className="absolute inset-0 bg-grid-white/[0.02] mask-[linear-gradient(to_bottom,transparent,black)] pointer-events-none" />
                 <div className="absolute -right-20 -top-20 w-64 h-64 bg-accent-lime/10 rounded-full blur-[100px] pointer-events-none" />
 
                 <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">

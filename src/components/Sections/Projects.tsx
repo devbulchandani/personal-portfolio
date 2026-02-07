@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GithubIcon, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,6 +13,7 @@ const projects = [
         tech: ["React", "Node.js", "Express", "MongoDB", "LangChain", "Meta-Llama3", "Tailwind"],
         color: "accent-orange",
         link: "https://github.com/devbulchandani/utopia",
+        liveLink: null,
         image: "/utopia.png",
         image2: "/utopia2.png"
     },
@@ -23,6 +24,7 @@ const projects = [
         tech: ["React", "Node.js", "MongoDB", "Auth0", "Crypto-js", "Tesseract.js"],
         color: "accent-lime",
         link: "https://github.com/devbulchandani/void",
+        liveLink: "https://knowme-zc44.onrender.com",
         image: "/void.png",
         image2: "/void2.png"
     },
@@ -33,6 +35,7 @@ const projects = [
         tech: ["Spring Boot", "PostgreSQL", "React", "Cloudinary"],
         color: "accent-orange",
         link: "https://github.com/devbulchandani/paww",
+        liveLink: "https://paww.onrender.com",
         image: "/paww.png",
         image2: "/paww2.png"
     },
@@ -43,6 +46,7 @@ const projects = [
         tech: ["Next.js", "Firebase", "GCP", "Instagram API"],
         color: "accent-lime",
         link: "https://github.com/devbulchandani/kalasarthi",
+        liveLink: "https://kalasarthi-525551372559.us-central1.run.app",
         image: "/kalasarthi.png",
         image2: "/kalasarthi2.png"
     }
@@ -58,7 +62,7 @@ export default function Projects() {
                 className="text-3xl font-bold text-white mb-12 flex items-center gap-4"
             >
                 Featured Projects
-                <div className="h-[1px] bg-gradient-to-r from-accent-orange to-transparent flex-grow ml-4 max-w-[200px]" />
+                <div className="h-px bg-linear-to-r from-accent-orange to-transparent grow ml-4 max-w-[200px]" />
             </motion.h2>
 
             <div className="space-y-12">
@@ -80,13 +84,12 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             className="group relative rounded-3xl bg-neutral-900/50 border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-accent-orange/10"
         >
             <div className="grid lg:grid-cols-2 gap-8">
-                {/* Content Side */}
                 <div className="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
                     <div className="mb-6">
                         <span className={`text-xs font-bold tracking-widest uppercase ${project.color === 'accent-lime' ? 'text-accent-lime' : 'text-accent-orange'} mb-2 block`}>
                             {project.tag}
                         </span>
-                        <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-neutral-400 transition-all">
+                        <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-white group-hover:to-neutral-400 transition-all">
                             {project.title}
                         </h3>
                         <p className="text-neutral-400 leading-relaxed text-lg">
@@ -104,16 +107,22 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 
                     <div className="flex items-center gap-4">
                         <Link href={project.link}>
-                            <button className="flex items-center gap-2 text-white font-medium hover:gap-3 transition-all group/btn">
-                                View Project <ArrowUpRight className="w-4 h-4" />
+                            <button className="flex items-center gap-2 text-white font-medium hover:gap-3 transition-all group/btn cursor-pointer">
+                                <GithubIcon className="w-4 h-4" /> Github <ArrowUpRight className="w-4 h-4" />
                             </button>
                         </Link>
+
+                        {project.liveLink && (
+                            <Link href={project.liveLink}>
+                                <button className="flex items-center gap-2 text-white font-medium hover:gap-3 transition-all group/btn cursor-pointer">
+                                    <Play className="w-4 h-4" /> View Live <ArrowUpRight className="w-4 h-4" />
+                                </button>
+                            </Link>
+                        )}
                     </div>
                 </div>
 
-                {/* Visual Side (Mockup Placeholder) */}
-                {/* Visual Side */}
-                <div className="order-1 lg:order-2 bg-gradient-to-br from-neutral-800 to-neutral-900 min-h-[300px] lg:min-h-full relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 p-4">
+                <div className="order-1 lg:order-2 bg-linear-to-br from-neutral-800 to-neutral-900 min-h-[300px] lg:min-h-full relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 p-4">
 
                     <div className="absolute inset-0 bg-black/20" />
 
@@ -121,7 +130,6 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
                         {project.title}
                     </div>
 
-                    {/* UP DOWN IMAGES */}
                     <div className="relative z-10 h-full flex flex-col gap-4">
                         <div className="w-full h-1/2 relative rounded-xl overflow-hidden">
                             <Image

@@ -17,11 +17,11 @@ export default function ProfileSidebar() {
                 <div className="absolute top-[-50px] right-[-50px] w-24 h-24 bg-accent-orange/20 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute bottom-[-50px] left-[-50px] w-32 h-32 bg-accent-lime/10 rounded-full blur-3xl pointer-events-none" />
 
-                <div className="flex flex-col items-center w-full z-10 space-y-6 flex-grow mt-8">
+                <div className="flex flex-col items-center w-full z-10 space-y-6 h-full mt-8">
                     <div className="relative w-48 h-60 rounded-2xl overflow-hidden border border-white/10 group shadow-lg">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent z-10" />
                         <div className="w-full h-full bg-neutral-900 flex items-center justify-center relative">
-                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800 via-neutral-900 to-black"></div>
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-neutral-800 via-neutral-900 to-black"></div>
                             <Image
                                 src="/profile.jpeg"
                                 width={192}
@@ -53,9 +53,41 @@ export default function ProfileSidebar() {
 
                     <div className="flex gap-5 mt-4">
                         <SocialLink href="https://github.com/devbulchandani" icon={<Github className="w-5 h-5" />} label="GitHub" />
-                        <SocialLink href="https://linkedin.com/in/devbulchandani" icon={<Linkedin className="w-5 h-5" />} label="LinkedIn" />
+                        <SocialLink href="https://www.linkedin.com/in/dev-bulchandani-51b032291/" icon={<Linkedin className=" w-5 h-5" />} label="LinkedIn" />
                         <SocialLink href="https://leetcode.com/devbulchandani" icon={<Code className="w-5 h-5" />} label="LeetCode" />
                     </div>
+                    <div className="w-full flex justify-center mt-6">
+                        <Link
+                            href="/DevBulchandani.pdf"
+                            // download="DevBulchandani.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="
+      relative overflow-hidden
+      px-7 py-3.5 rounded-xl
+      text-white font-semibold tracking-wide
+      bg-white/5 backdrop-blur-md
+      border border-white/10
+      transition-all duration-300
+      hover:scale-105 hover:-translate-y-0.5
+      hover:bg-white/8
+      shadow-[0_0_20px_rgba(255,120,0,0.15)]
+      flex items-center gap-2
+      group
+    "
+                        >
+                            {/* Glow effect */}
+                            <span className="absolute inset-0 bg-linear-to-r from-accent-orange/20 to-accent-lime/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                            {/* Animated underline */}
+                            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent-orange group-hover:w-full transition-all duration-300" />
+
+                            <Play className="w-4 h-4 text-accent-orange" />
+                            <span className="relative">Download CV</span>
+                        </Link>
+                    </div>
+
+
                 </div>
 
             </motion.div>

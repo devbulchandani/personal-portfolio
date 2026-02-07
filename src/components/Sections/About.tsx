@@ -13,7 +13,7 @@ export default function About() {
             >
                 <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-4">
                     About Me
-                    <div className="h-[1px] bg-gradient-to-r from-accent-orange to-transparent flex-grow ml-4 max-w-[200px]" />
+                    <div className="h-px bg-linear-to-r from-accent-orange to-transparent grow ml-4 max-w-[200px]" />
                 </h2>
 
                 <div className="text-lg lg:text-xl text-neutral-300 leading-relaxed max-w-4xl space-y-6">

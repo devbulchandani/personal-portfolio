@@ -27,7 +27,7 @@ export default function Timeline() {
                 className="text-3xl font-bold text-white mb-12 flex items-center gap-4"
             >
                 Education
-                <div className="h-[1px] bg-gradient-to-r from-accent-orange to-transparent flex-grow ml-4 max-w-[200px]" />
+                <div className="h-px bg-linear-to-r from-accent-orange to-transparent grow ml-4 max-w-[200px]" />
             </motion.h2>
 
             <div className="relative border-l border-white/10 ml-3 space-y-12 pb-12">

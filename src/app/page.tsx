@@ -18,7 +18,7 @@ export default function Home() {
         <Projects />
         <OpenSource />
         <Timeline />
-        <Achievements />
+        {/* <Achievements /> */}
         <Contact />
       </div>
     </SplitLayout>

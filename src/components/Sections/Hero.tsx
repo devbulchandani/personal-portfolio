@@ -35,12 +35,12 @@ export default function Hero() {
                 </motion.p>
             </div>
 
-            {/* Counters */}
+            {/* Counters
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mt-20 border-t border-white/10 pt-10">
                 <Counter end={6} label="Projects Completed" />
                 <Counter end={3} label="Hackathon Wins" />
                 <Counter end={1} label="Open Source Contributions" />
-            </div>
+            </div> */}
 
             {/* Badges / Subtext */}
             <motion.div
@@ -56,6 +56,10 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-accent-lime" />
                     Winner — Soonami Venturethon
+                </div>
+                <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent-blue" />
+                    2nd Runner Up — Google Gen AI Exchange Hackathon
                 </div>
             </motion.div>
         </section>
