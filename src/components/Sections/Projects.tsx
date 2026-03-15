@@ -7,15 +7,15 @@ import Link from "next/link";
 
 const projects = [
     {
-        title: "UTOPIA",
-        tag: "AI + Full Stack + Voice",
-        description: "AI-driven event creation using prompts and voice. Features smart recommendations and chatbot integration.",
-        tech: ["React", "Node.js", "Express", "MongoDB", "LangChain", "Meta-Llama3", "Tailwind"],
+        title: "BUILDSPACE",
+        tag: "AI-Powered Project Learning Mentor",
+        description: "Buildspace AI is a personalized coding mentor built with Spring Boot and Gemini 3 that analyzes your GitHub repositories to provide real-time, milestone-driven guidance.",
+        tech: ["Java", "Spring Boot", "React", "MySQL", "LangChain", "Vertex AI", "Gemini 3"],
         color: "accent-orange",
-        link: "https://github.com/devbulchandani/utopia",
-        liveLink: null,
-        image: "/utopia.png",
-        image2: "/utopia2.png"
+        link: "https://github.com/devbulchandani/coding-mentor",
+        liveLink: "https://buildspace-ai-985437920499.asia-south1.run.app",
+        image: "/buildspace1.png",
+        image2: "/buildspace2.png"
     },
     {
         title: "VOID",
