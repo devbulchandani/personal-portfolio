@@ -1,157 +1,45 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, GithubIcon, Play } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { ArrowUpRight, Github, Smartphone, Terminal, Cpu, Layers3 } from "lucide-react";
 
 const projects = [
-    {
-        title: "BUILDSPACE",
-        tag: "AI-Powered Project Learning Mentor",
-        description: "Buildspace AI is a personalized coding mentor built with Spring Boot and Gemini 3 that analyzes your GitHub repositories to provide real-time, milestone-driven guidance.",
-        tech: ["Java", "Spring Boot", "React", "MySQL", "LangChain", "Vertex AI", "Gemini 3"],
-        color: "accent-orange",
-        link: "https://github.com/devbulchandani/coding-mentor",
-        liveLink: "https://buildspace-ai-985437920499.asia-south1.run.app",
-        image: "/buildspace1.png",
-        image2: "/buildspace2.png"
-    },
-    {
-        title: "VOID",
-        tag: "Privacy + Zero Knowledge + Security",
-        description: "Secure Aadhaar platform with selective data sharing via QR and ZK authentication using Anon Aadhaar.",
-        tech: ["React", "Node.js", "MongoDB", "Auth0", "Crypto-js", "Tesseract.js"],
-        color: "accent-lime",
-        link: "https://github.com/devbulchandani/void",
-        liveLink: "https://knowme-zc44.onrender.com",
-        image: "/void.png",
-        image2: "/void2.png"
-    },
-    {
-        title: "PAWW",
-        tag: "Geo + Full Stack + Social Impact",
-        description: "Location-based dog search and adoption platform with real-time filters and secure image storage.",
-        tech: ["Spring Boot", "PostgreSQL", "React", "Cloudinary"],
-        color: "accent-orange",
-        link: "https://github.com/devbulchandani/paww",
-        liveLink: "https://paww.onrender.com",
-        image: "/paww.png",
-        image2: "/paww2.png"
-    },
-    {
-        title: "KALASARTHI",
-        tag: "AI + Offline + Cloud",
-        description: "AI-powered artisan marketplace with offline-first experience and Gemini integration.",
-        tech: ["Next.js", "Firebase", "GCP", "Instagram API"],
-        color: "accent-lime",
-        link: "https://github.com/devbulchandani/kalasarthi",
-        liveLink: "https://kalasarthi-525551372559.us-central1.run.app",
-        image: "/kalasarthi.png",
-        image2: "/kalasarthi2.png"
-    }
+  { name: "Hyusk", repo: "hyusk", group: "AI systems", kind: "Python · Voice AI", mark: "H/", color: "mint", description: "A local-first, persistent, voice-controlled AI operating layer for personal computers.", stack: ["Python", "AI agents", "Voice"] },
+  { name: "Jot", repo: "jot-notes", group: "Mobile", kind: "Android · AI notes", mark: "J.", color: "lilac", description: "An Android notes app that turns notes, voice recordings, and media into a searchable memory layer.", stack: ["Kotlin", "Jetpack Compose", "AI"] },
+  { name: "Teramera", repo: "teramera", group: "Mobile", kind: "Android · Fintech", mark: "T/", color: "orange", description: "Split expenses with friends in a Kotlin and Compose app, backed by Spring Boot and Cloudflare D1.", stack: ["Kotlin", "Compose", "Spring Boot"] },
+  { name: "Sunrise", repo: "sunrise", group: "AI systems", kind: "Python · Financial intelligence", mark: "S/", color: "blue", description: "An autonomous financial intelligence platform that analyzes market news with AI and delivers filtered alerts, with self-healing scrapers that adapt when sources change.", stack: ["Python", "LLM agents", "PostgreSQL"] },
+  { name: "Buildspace", repo: "coding-mentor", group: "AI systems", kind: "Java · Developer tools", mark: "B/", color: "mint", description: "An AI coding mentor that reads your repositories and turns project goals into milestone based guidance.", stack: ["Java", "Spring Boot", "Gemini"] },
+  { name: "Kafka Clone", repo: "kafka-clone", group: "Backend", kind: "Java · Distributed systems", mark: "K/", color: "lilac", description: "A Java implementation exploring the core ideas behind distributed event streaming and Kafka internals.", stack: ["Java", "Distributed systems"] },
+  { name: "Ticketing Microservice", repo: "ticketing-microservice", group: "Backend", kind: "Java · Microservices", mark: "TM/", color: "orange", description: "A Java backend project focused on service boundaries and ticketing workflows.", stack: ["Java", "Spring Boot", "Microservices"] },
+  { name: "VOID", repo: "void", group: "Web apps", kind: "Privacy · Identity", mark: "V/", color: "blue", description: "A privacy-first identity platform for selective data sharing and zero knowledge authentication.", stack: ["React", "Node.js", "Zero knowledge"] },
+  { name: "Kalasarthi", repo: "KalaSarthi", group: "Web apps", kind: "AI · Marketplace", mark: "KS/", color: "mint", description: "An AI powered artisan marketplace designed for an offline-first experience.", stack: ["Next.js", "Firebase", "Gemini"] },
+  { name: "Paww", repo: "Paww", group: "Web apps", kind: "Full stack · Social impact", mark: "P/", color: "lilac", description: "A location based dog search and adoption platform with real-time filters.", stack: ["Spring Boot", "PostgreSQL", "React"] },
 ];
 
+const filters = ["All work", "Mobile", "AI systems", "Backend", "Web apps"];
+
 export default function Projects() {
-    return (
-        <section className="py-20">
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-3xl font-bold text-white mb-12 flex items-center gap-4"
-            >
-                Featured Projects
-                <div className="h-px bg-linear-to-r from-accent-orange to-transparent grow ml-4 max-w-[200px]" />
-            </motion.h2>
-
-            <div className="space-y-12">
-                {projects.map((project, index) => (
-                    <ProjectCard key={project.title} project={project} index={index} />
-                ))}
-            </div>
-        </section>
-    );
-}
-
-function ProjectCard({ project, index }: { project: any; index: number }) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: index * 0.1 }}
-            className="group relative rounded-3xl bg-neutral-900/50 border border-white/5 overflow-hidden hover:border-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-accent-orange/10"
-        >
-            <div className="grid lg:grid-cols-2 gap-8">
-                <div className="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                    <div className="mb-6">
-                        <span className={`text-xs font-bold tracking-widest uppercase ${project.color === 'accent-lime' ? 'text-accent-lime' : 'text-accent-orange'} mb-2 block`}>
-                            {project.tag}
-                        </span>
-                        <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-white group-hover:to-neutral-400 transition-all">
-                            {project.title}
-                        </h3>
-                        <p className="text-neutral-400 leading-relaxed text-lg">
-                            {project.description}
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 mb-8">
-                        {project.tech.map((t: string) => (
-                            <span key={t} className="px-3 py-1 bg-white/5 rounded-full text-xs text-neutral-300 font-mono">
-                                {t}
-                            </span>
-                        ))}
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                        <Link href={project.link}>
-                            <button className="flex items-center gap-2 text-white font-medium hover:gap-3 transition-all group/btn cursor-pointer">
-                                <GithubIcon className="w-4 h-4" /> Github <ArrowUpRight className="w-4 h-4" />
-                            </button>
-                        </Link>
-
-                        {project.liveLink && (
-                            <Link href={project.liveLink}>
-                                <button className="flex items-center gap-2 text-white font-medium hover:gap-3 transition-all group/btn cursor-pointer">
-                                    <Play className="w-4 h-4" /> View Live <ArrowUpRight className="w-4 h-4" />
-                                </button>
-                            </Link>
-                        )}
-                    </div>
-                </div>
-
-                <div className="order-1 lg:order-2 bg-linear-to-br from-neutral-800 to-neutral-900 min-h-[300px] lg:min-h-full relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 p-4">
-
-                    <div className="absolute inset-0 bg-black/20" />
-
-                    <div className="absolute inset-0 flex items-center justify-center text-neutral-700 font-bold text-6xl opacity-10 select-none">
-                        {project.title}
-                    </div>
-
-                    <div className="relative z-10 h-full flex flex-col gap-4">
-                        <div className="w-full h-1/2 relative rounded-xl overflow-hidden">
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <div className="w-full h-1/2 relative rounded-xl overflow-hidden">
-                            <Image
-                                src={project.image2}
-                                alt={project.title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </motion.div>
-    );
+  const [filter, setFilter] = useState("All work");
+  const visible = useMemo(() => filter === "All work" ? projects : projects.filter((p) => p.group === filter), [filter]);
+  return (
+    <section id="work" className="section-block scroll-mt-10 py-24">
+      <div className="section-heading">
+        <div><span className="eyebrow">Selected work · 2024—26</span><h2>Projects in motion<span className="accent-dot">.</span></h2></div>
+        <a className="text-link hidden sm:inline-flex" href="https://github.com/devbulchandani?tab=repositories" target="_blank" rel="noreferrer">All repositories <ArrowUpRight size={16}/></a>
+      </div>
+      <div className="filter-row" role="tablist" aria-label="Filter projects">
+        {filters.map((item) => <button key={item} type="button" role="tab" aria-selected={filter === item} className={`filter-chip ${filter === item ? "active" : ""}`} onClick={() => setFilter(item)}>{item}</button>)}
+      </div>
+      <motion.div layout className="project-grid">
+        {visible.map((project, index) => <motion.article layout key={project.name} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .35, delay: index * .035 }} className={`project-card ${project.color}`}>
+          <div className="project-top"><span className="project-mark">{project.mark}</span><span className="project-kind">{project.kind}</span><a className="icon-link" href={`https://github.com/devbulchandani/${project.repo}`} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} on GitHub`}><ArrowUpRight size={18}/></a></div>
+          <div className="project-art" aria-hidden="true"><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><div className="art-core">{project.name.slice(0, 1)}</div><span className="art-index">0{projects.indexOf(project) + 1}</span></div>
+          <div className="project-copy"><h3>{project.name}</h3><p>{project.description}</p></div>
+          <div className="project-bottom"><div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div><a className="repo-link" href={`https://github.com/devbulchandani/${project.repo}`} target="_blank" rel="noreferrer"><Github size={15}/> Source</a></div>
+        </motion.article>)}
+      </motion.div>
+      <div className="repo-note"><span><Smartphone size={15}/> Android</span><span><Cpu size={15}/> AI + Python</span><span><Terminal size={15}/> Java systems</span><span><Layers3 size={15}/> Full stack</span><span className="repo-count">{projects.length} featured builds</span></div>
+    </section>
+  );
 }
