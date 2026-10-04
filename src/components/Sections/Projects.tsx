@@ -8,7 +8,7 @@ import Image from "next/image";
 type Project = { name: string; repo: string; group: string; kind: string; mark: string; color: string; description: string; stack: string[]; logo?: string; images?: string[] };
 
 const projects: Project[] = [
-  { name: "Hyusk", repo: "hyusk", group: "AI systems", kind: "Python · Voice AI", mark: "H/", color: "mint", description: "A local-first, persistent, voice-controlled AI operating layer for personal computers.", stack: ["Python", "AI agents", "Voice"] },
+  { name: "Rem", repo: "hyusk", group: "AI systems", kind: "Python · Voice AI", mark: "R/", color: "mint", description: "A local-first, persistent, voice-controlled AI operating layer for personal computers.", stack: ["Python", "AI agents", "Voice"] },
   { name: "Jot", repo: "jot-notes", group: "Mobile", kind: "Android · AI notes", mark: "J.", color: "lilac", logo: "/jot-icon.svg", description: "An Android notes app that turns notes, voice recordings, and media into a searchable memory layer.", stack: ["Kotlin", "Jetpack Compose", "AI"] },
   { name: "Teramera", repo: "teramera", group: "Mobile", kind: "Android · Fintech", mark: "T/", color: "orange", logo: "/teramera-icon.png", description: "Split expenses with friends in a Kotlin and Compose app, backed by Spring Boot and Cloudflare D1.", stack: ["Kotlin", "Compose", "Spring Boot"] },
   { name: "Sunrise", repo: "sunrise", group: "AI systems", kind: "Python · Financial intelligence", mark: "S/", color: "blue", logo: "/sunrise-logo.svg", description: "An autonomous financial intelligence platform that analyzes market news with AI and delivers filtered alerts, with self-healing scrapers that adapt when sources change.", stack: ["Python", "LLM agents", "PostgreSQL"] },
